@@ -13,4 +13,3 @@ with requests.Session() as session:
     # print(requestedData.text)
     soup = BeautifulSoup(requestedData.text, "html.parser")
     print(soup.prettify())
-    
