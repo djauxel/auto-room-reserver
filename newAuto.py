@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 browser = webdriver.Chrome()    # instantiate a chrome webbrowser
 
-for i in range(0, 5):    # cycles through 5 accounts
+for i in range(0, 3):    # cycles through 5 accounts
 
     browser.get('https://biblio.csusm.edu/groupstudy/reservation_calendar.php?&login')    # navigate to the desired url
 
@@ -24,6 +24,7 @@ for i in range(0, 5):    # cycles through 5 accounts
     for i in range(1, 6):    # Reserves study rooms from 0 = Monday ... 4 = Friday
         today = datetime.datetime.today()
         indexDate = today + datetime.timedelta(days = i + 1)
+        year = str(today.year)
         month = functions.getMonth(indexDate.month)
         day = functions.getDay(indexDate.day)
         weekDay = indexDate.weekday()
@@ -50,7 +51,7 @@ for i in range(0, 5):    # cycles through 5 accounts
 
         browser.get('https://biblio.csusm.edu/groupstudy/reservation_calendar.php')    # navigate to the desired url
         
-        time.sleep(10)
+        time.sleep(20)
 
     logoff_attempt = browser.find_element_by_link_text('Logoff')    # finds the log off button for logging out
     logoff_attempt.click()    # attempts to log out by pressing the logoff button
